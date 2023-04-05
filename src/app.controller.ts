@@ -10,7 +10,7 @@ import {
 import { AppService } from './app.service';
 import { FileInterceptor, MulterModule } from '@nestjs/platform-express';
 import { parse, join } from 'path';
-import * as sharp from 'sharp';
+import sharp from 'sharp';
 
 @Controller()
 export class AppController {
