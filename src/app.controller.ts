@@ -11,6 +11,8 @@ import { AppService } from './app.service';
 import { FileInterceptor, MulterModule } from '@nestjs/platform-express';
 import { parse, join } from 'path';
 import sharp from 'sharp';
+import { mkdirp } from 'mkdirp';
+
 
 @Controller()
 export class AppController {
@@ -27,6 +29,9 @@ export class AppController {
     console.log(image);
     const originalName = parse(image.originalname).name;
     const ext = parse(image.originalname).ext;
+
+    const made = mkdirp.sync('tmp/foo/bar');
+    console.log(`made directories, starting with ${made}`);
 
     const filename = Date.now() + '-' + originalName + ext;
 
