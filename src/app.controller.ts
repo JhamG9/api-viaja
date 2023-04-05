@@ -33,7 +33,7 @@ export class AppController {
     await sharp(image.buffer)
       .resize(800)
       .webp({ effort: 3 })
-      .toFile(join('./tmp', filename));
+      .toFile(join('tmp/foo/bar', filename));
 
     const test = 'http://localhost:3000/public/' + filename;
     return resp.json({
